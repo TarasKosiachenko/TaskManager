@@ -1,0 +1,9 @@
+$height-header: 66px;
+$border-color: #e7ebf0;
+
+main {
+  width: 100%;
+  border-right: 2px solid $border-color;
+  box-sizing: border-box;
+  margin-top: $height-header;
+}

@@ -1,0 +1,37 @@
+$border-color: #e7ebf0;
+
+nav {
+  width: 250px;
+  -webkit-flex-shrink: 0;
+  border-right: 2px solid $border-color;
+  border-left: 2px solid $border-color;
+  overflow-y: auto;
+  height: 100vh;
+  display: flex;
+  width: 250px;
+  flex-direction: column;
+  flex-shrink: 0;
+
+  .navBar_header {
+    padding: 9px 10px;
+    height: 66px;
+    border-bottom: 2px solid #e7ebf0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+
+    .app_logo {
+      padding-right: 10px;
+      margin-right: 10px;
+      border-right: 2px solid #333;
+    }
+
+    .app_title {
+      font-family: "IBM Plex Sans", sans-serif;
+      p {
+        font-size: 1.5rem;
+        margin: 0;
+      }
+    }
+  }
+}
