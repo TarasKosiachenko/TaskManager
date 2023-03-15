@@ -5,5 +5,21 @@ main {
   width: 100%;
   border-right: 2px solid $border-color;
   box-sizing: border-box;
-  margin-top: $height-header;
+}
+
+.todo_list {
+  position: relative;
+}
+
+.btn-group {
+  position: absolute;
+  left: 20px;
+  top: 25px;
+  z-index: 2000;
+}
+.btn-group > .btn {
+  padding: 0 5px;
+}
+.btn-group label {
+  transition: all 1s;
 }
