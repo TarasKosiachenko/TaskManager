@@ -4,42 +4,22 @@ a {
   text-decoration: none;
 }
 
-.nav-pills .nav-link.active {
-  background-color: #6c757d;
-}
-
-#Nav_menu {
+.list {
   display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 100%;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.inactive {
-  display: flex;
-  height: 35px;
-  padding: 0 10px 0 10px;
+  height: auto;
+  padding: 5px 10px;
   justify-content: space-between;
-}
-
-.inactive:hover {
-  color: #333;
-  border-radius: 10px;
-  background: rgb(207, 207, 207);
-}
-.active:hover {
-  color: #fff;
-}
-
-.active {
-  padding: 0 10px 0 10px;
+  &:hover {
+    border-radius: 10px;
+    background: rgb(235, 235, 235);
+  }
+  &.active {
   display: flex;
-  height: 35px;
   justify-content: space-between;
   background: #6c757d;
   color: #fff;
   border-radius: 10px;
 }
+}
+
+

@@ -9,14 +9,15 @@ function Lists({ storeLists }) {
         <NavLink
           to={"/lists/" + (list.id || list.list_id)}
           key={list.id || list.list_id}
-          className={({ isActive }) => (isActive ? "active" : "inactive")}
+          className={`list ${({ isActive }) => (isActive ? "active" : "")}`}
+          // className={({ isActive }) => (isActive ? "active" : "inactive")}
         >
           {list.title} <span>{list.undone}</span>
         </NavLink>
       ))}
       <NavLink
         to={"/today"}
-        className={({ isActive }) => (isActive ? "active" : "inactive")}
+        className={`list ${({ isActive }) => (isActive ? "active" : "")}`}
       >
         Task Today
       </NavLink>
