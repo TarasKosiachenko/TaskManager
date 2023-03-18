@@ -1,0 +1,131 @@
+$primary-color: #0080ff;
+$secondary-color: #dcdcdc;
+$danger-color: #eb3636;
+$transition-border-color: all 0.4s ease-in-out;
+
+.createTask_form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  * {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .form_title {
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-between;
+    &::after {
+      content: "";
+      display: block;
+      width: 10px;
+      height: 10px;
+      cursor: pointer;
+      border-right: 2px solid #333;
+      border-top: 2px solid #333;
+      transform: rotate(135deg);
+      margin: 0 8px;
+      transition: $transition-border-color;
+    }
+  }
+
+  .emptyInput {
+    position: relative;
+    &:after {
+      content: "please enter the task name";
+      position: absolute;
+      top: 45px;
+      left: 5px;
+      color: $danger-color;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+    }
+    &.show {
+      &:after {
+        opacity: 1;
+        visibility: visible;
+      }
+      .taskName_input {
+        border: 1px solid $danger-color;
+        border-bottom: 2px solid $danger-color !important;
+        transition: $transition-border-color;
+      }
+    }
+  }
+
+  .taskName_input {
+    position: relative;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    width: 100%;
+    border: 1px solid transparent;
+    border-bottom: 2px solid $secondary-color;
+    transition: $transition-border-color;
+    &:focus {
+      outline: none;
+      border-bottom: 2px solid $primary-color;
+    }
+  }
+
+  .taskDescription_input {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid $secondary-color;
+    transition: $transition-border-color;
+    &:focus {
+      outline: none;
+      border-bottom: 2px solid $primary-color;
+    }
+  }
+
+  .list_selection {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid $secondary-color;
+    transition: $transition-border-color;
+    &:focus {
+      outline: none;
+      border-bottom: 2px solid $primary-color;
+    }
+  }
+
+  .form_footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 1rem 0 0.5rem;
+    .date_selection {
+      padding: 0.5rem;
+      border: none;
+      max-width: 115px;
+      border-bottom: 2px solid $secondary-color;
+      transition: $transition-border-color;
+      &:focus {
+        outline: none;
+        border-bottom: 2px solid $primary-color;
+      }
+    }
+
+    .createTask_button {
+      padding: 0.5rem;
+      background-color: $primary-color;
+      color: #fff;
+      border: none;
+      max-width: 100px;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+      &:active {
+        transform: translateY(1px);
+      }
+    }
+  }
+}

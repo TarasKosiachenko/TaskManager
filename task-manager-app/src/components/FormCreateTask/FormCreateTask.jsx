@@ -18,6 +18,7 @@ const INITIAL_STATE = {
 const FormCreateTask = () => {
   const { pathname } = useLocation();
   const [form, setForm] = useState(INITIAL_STATE);
+  const [emptyInput, setEmptyInput] = useState(false);
 
   const dispatch = useDispatch();
   const storeLists = useSelector((state) => state.dashboard.lists);
@@ -41,71 +42,62 @@ const FormCreateTask = () => {
   function createTasks(e) {
     e.preventDefault();
     e.stopPropagation();
-    if (form.name.length) {
+    if (form.name.trim().length) {
       dispatch(axiosAddTask({ ...form, shouldAddValue }));
       setForm(INITIAL_STATE);
       dispatch(incrementCounterAction(form.list_id));
       e.target.reset();
     } else {
-      alert("please enter the task name");
-      e.target[0].className = "form-control emptyInput";
-      setTimeout(() => (e.target[0].className = "form-control"), 2000);
+      setEmptyInput(true);
+      setTimeout(() => setEmptyInput(false), 2000);
     }
   }
 
   return (
-    <form
-      name="task"
-      className="mb-3"
-      onSubmit={createTasks}
-      style={{ width: "100%" }}
-    >
-      Create New Task
-      <div className="mb-2">
-        <input
-          className="form-control input_name"
+    <form name="task" className="createTask_form" onSubmit={createTasks}>
+      <div className="form_title">Create New Task</div>
+
+      <div className="form_body">
+        <div className={emptyInput ? "emptyInput show" : "emptyInput"}>
+          <input
+          className='taskName_input'
           type="text"
           placeholder="Title"
           name="name"
           onChange={handleChange}
         />
-      </div>
-      <div className="mb-2">
+        </div>
         <textarea
-          className="form-control"
+          className="taskDescription_input"
           name="description"
           placeholder="Description"
-          cols="40"
-          rows="5"
           onChange={handleChange}
         />
-      </div>
-
-      <select className="mb-2" name="list_id" onChange={handleChange}>
-        {storeLists?.map((el) => (
-          <option key={el.id} value={el.id}>
-            list: {el.title}
-          </option>
-        ))}
-      </select>
-
-      <div className="form-date-btn-create">
-        <div>
+        <select
+          className="list_selection"
+          name="list_id"
+          onChange={handleChange}
+        >
+          {storeLists?.map((el) => (
+            <option key={el.id} value={el.id}>
+              list: {el.title}
+            </option>
+          ))}
+        </select>
+        <div className="form_footer">
           <input
-            className="form-control"
+            className="date_selection"
             name="due_date"
             type="date"
-            style={{ width: "140px" }}
             onChange={handleChange}
           />
+          <button
+            className="createTask_button"
+            onMouseDown={(e) => e.preventDefault()}
+          >
+            Create Task
+          </button>
         </div>
-        <button
-          type="submit"
-          variant="outline-secondary"
-          onMouseDown={(e) => e.preventDefault()}
-        >
-          Create
-        </button>
       </div>
     </form>
   );
