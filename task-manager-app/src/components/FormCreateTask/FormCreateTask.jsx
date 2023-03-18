@@ -19,6 +19,11 @@ const FormCreateTask = () => {
   const { pathname } = useLocation();
   const [form, setForm] = useState(INITIAL_STATE);
   const [emptyInput, setEmptyInput] = useState(false);
+  const [showFormBody, setShowFormBody] = useState(false);
+
+  const handleFormTitleClick = () => {
+    setShowFormBody(!showFormBody);
+  };
 
   const dispatch = useDispatch();
   const storeLists = useSelector((state) => state.dashboard.lists);
@@ -54,8 +59,8 @@ const FormCreateTask = () => {
   }
 
   return (
-    <form name="task" className="createTask_form" onSubmit={createTasks}>
-      <div className="form_title">Create New Task</div>
+    <form name="task" className={`createTask_form ${showFormBody ? "show" : ""}`} onSubmit={createTasks}>
+      <div className="form_title" onClick={handleFormTitleClick}>Create New Task</div>
 
       <div className="form_body">
         <div className={emptyInput ? "emptyInput show" : "emptyInput"}>
@@ -80,7 +85,7 @@ const FormCreateTask = () => {
         >
           {storeLists?.map((el) => (
             <option key={el.id} value={el.id}>
-              list: {el.title}
+              List: {el.title}
             </option>
           ))}
         </select>

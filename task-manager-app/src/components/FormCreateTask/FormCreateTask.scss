@@ -12,21 +12,48 @@ $transition-border-color: all 0.4s ease-in-out;
     box-sizing: border-box;
   }
 
+  &.show {
+    .form_title {
+      &::after {
+        content: "";
+        transform: rotate(-45deg);
+      }
+    }
+    .form_body {
+      visibility: visible;
+      height: 230px;
+    }
+  }
+
+  .form_body {
+    background-color: #fff;
+    height: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    padding: 0 5px;
+  }
+
   .form_title {
     display: flex;
+    align-items: center;
+    padding: 5px;
     box-sizing: border-box;
     justify-content: space-between;
+    cursor: pointer;
     &::after {
       content: "";
       display: block;
       width: 10px;
       height: 10px;
-      cursor: pointer;
       border-right: 2px solid #333;
       border-top: 2px solid #333;
       transform: rotate(135deg);
       margin: 0 8px;
       transition: $transition-border-color;
+    }
+    &:hover {
+      background: rgb(235, 235, 235);
     }
   }
 
