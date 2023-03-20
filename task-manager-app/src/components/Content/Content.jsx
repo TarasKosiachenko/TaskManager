@@ -31,7 +31,7 @@ const Content = () => {
             defaultChecked
           />
           <label className="btn btn-outline-secondary" htmlFor="tasks2">
-            Open
+            Uncompleted Tasks
           </label>
 
           <input
@@ -41,7 +41,7 @@ const Content = () => {
             id="tasks1"
           />
           <label className="btn btn-outline-secondary" htmlFor="tasks1">
-            All
+            All Tasks
           </label>
         </div>
         <Routes>

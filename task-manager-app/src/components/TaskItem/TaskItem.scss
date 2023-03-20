@@ -7,24 +7,24 @@ li {
   padding: 0px 20px;
   margin-top: 20px;
 }
- li div {
+li div {
   display: flex;
   align-items: center;
   padding-top: 12px;
 }
- li span {
+li span {
   padding-left: 10px;
   font-size: 14px;
   color: #878787;
 }
- li h5 {
+li h5 {
   font-weight: 700;
   font-size: 14px;
   line-height: 16px;
   margin: 0;
   padding-left: 8px;
 }
- li p {
+li p {
   padding-left: 20px;
   font-size: 12px;
   margin: 0;
@@ -44,7 +44,7 @@ input[type="checkbox"]:checked + h5 {
 .show-done .done {
   display: block;
 }
- li.overdue {
+li.overdue {
   border-top: 4px solid #ff0000;
 }
 li.overdue span {
@@ -53,19 +53,44 @@ li.overdue span {
 .done span {
   color: #878787 !important;
 }
-.done svg path {
-  stroke: #878787 !important;
+.done {
+  .delete_task {
+    svg:hover {
+      path {
+        stroke: #ff0000 !important;
+      }
+    }
+  }
+  svg path {
+    stroke: #878787 !important;
+  }
 }
-li.overdue svg path {
+li.overdue .calendar svg path {
   stroke: #ff0000;
 }
 .btn-outline-danger {
   position: absolute;
+  cursor: pointer;
   right: 10px;
-  top: 10px;
+  top: 15px;
   width: 14px;
   height: 14px;
   padding: 0 1px 1px 0 !important;
   line-height: 0 !important;
   border-radius: 30px !important;
+}
+.delete_task {
+  svg:hover {
+    path,
+    polyline,
+    line {
+      stroke: #ff0000;
+    }
+  }
+}
+.todayTaskList {
+  padding-top: 0;
+  * {
+    padding-top: 0;
+  }
 }

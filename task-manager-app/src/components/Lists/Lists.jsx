@@ -14,12 +14,6 @@ function Lists({ storeLists }) {
           {list.title} <span>{list.undone}</span>
         </NavLink>
       ))}
-      <NavLink
-        to={"/today"}
-        className={`list ${( isActive ) => isActive && "active"}`}
-      >
-        Task Today
-      </NavLink>
     </div>
   );
 }

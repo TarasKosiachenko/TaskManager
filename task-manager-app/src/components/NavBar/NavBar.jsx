@@ -2,10 +2,11 @@ import React, { useEffect } from "react";
 import "./NavBar.scss";
 import { Link } from "react-router-dom";
 import Lists from "../Lists/Lists";
-import { LogoIcon } from "../../MyIcons/MyIcons"
+import { LogoIcon } from "../../MyIcons/MyIcons";
 import FormCreateTask from "../FormCreateTask/FormCreateTask";
 import { axiosGetLists } from "../../asyncActions/lists";
 import { useDispatch, useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -28,7 +29,15 @@ const NavBar = () => {
         </div>
       </div>
       <div className="navBar_body">
-        <Lists storeLists={storeLists} />
+        <div>
+          <Lists storeLists={storeLists} />
+          <NavLink
+            to={"/today"}
+            className={`list ${(isActive) => isActive && "active"}`}
+          >
+            Task Today
+          </NavLink>
+        </div>
         <FormCreateTask />
       </div>
     </nav>

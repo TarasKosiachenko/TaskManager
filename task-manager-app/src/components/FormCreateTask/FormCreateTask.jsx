@@ -70,7 +70,7 @@ const FormCreateTask = () => {
         <div className="form_title" onClick={handleListTitleClick}>
           Create New List
         </div>
-        <div className="form_body list_body">
+        {/* <div className="form_body list_body">
           <div className={emptyInput ? "emptyInput show" : "emptyInput"}>
             <input
               className="name_input"
@@ -86,7 +86,7 @@ const FormCreateTask = () => {
               Create List
             </button>
           </div>
-        </div>
+        </div> */}
       </div>
 
       <div className={`${showTaskContent ? "show_form" : ""}`}>

@@ -1,6 +1,6 @@
 import React from "react";
 import "./TaskItem.scss";
-import { TrashIcon } from "../../MyIcons/MyIcons"
+import { СalendarIcon, TrashIcon } from "../../MyIcons/MyIcons";
 import { useDispatch } from "react-redux";
 
 import { axiosDeleteTask } from "../../asyncActions/tasks";
@@ -56,8 +56,8 @@ function TaskItem({ todo }) {
             : "") + (todo.done ? "done" : "")
         }
       >
-        <div>
-          <TrashIcon />
+        <div className="calendar">
+          <СalendarIcon />
           <span>{getFormatedDate(todo.due_date)}</span>
         </div>
 
@@ -74,16 +74,11 @@ function TaskItem({ todo }) {
         <div>
           <p>{todo.description}</p>
         </div>
-        <button
-          onClick={deleteTask}
-          type="button"
-          className="btn btn-outline-danger delete_task"
-        >
-          X
-        </button>
-
+        <div className="btn btn-outline-danger delete_task">
+          <TrashIcon onClick={deleteTask} />
+        </div>
         {todo.list ? (
-          <div style={{ paddingTop: "0px" }}>
+          <div className="todayTaskList">
             list:
             <Lists storeLists={[todo.list]} />
           </div>
