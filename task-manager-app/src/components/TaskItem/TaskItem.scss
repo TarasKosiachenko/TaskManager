@@ -7,9 +7,6 @@ li {
   padding: 0px 20px;
   margin-top: 20px;
 }
-li:first-child {
-  margin-top: 76px;
-}
  li div {
   display: flex;
   align-items: center;
@@ -24,15 +21,17 @@ li:first-child {
   font-weight: 700;
   font-size: 14px;
   line-height: 16px;
-  margin-bottom: 0;
+  margin: 0;
   padding-left: 8px;
 }
  li p {
   padding-left: 20px;
   font-size: 12px;
+  margin: 0;
 }
 input[type="checkbox"] {
   accent-color: #489670;
+  margin: 0;
 }
 input[type="checkbox"]:checked + h5 {
   color: #878787;

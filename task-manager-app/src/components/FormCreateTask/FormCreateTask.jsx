@@ -19,10 +19,15 @@ const FormCreateTask = () => {
   const { pathname } = useLocation();
   const [form, setForm] = useState(INITIAL_STATE);
   const [emptyInput, setEmptyInput] = useState(false);
-  const [showFormBody, setShowFormBody] = useState(false);
+  const [showListContent, setShowListContent] = useState(false);
+  const [showTaskContent, setShowTaskContent] = useState(true);
 
-  const handleFormTitleClick = () => {
-    setShowFormBody(!showFormBody);
+  const handleListTitleClick = () => {
+    setShowListContent(!showListContent);
+  };
+
+  const handleTaskTitleClick = () => {
+    setShowTaskContent(!showTaskContent);
   };
 
   const dispatch = useDispatch();
@@ -59,49 +64,76 @@ const FormCreateTask = () => {
   }
 
   return (
-    <form name="task" className={`createTask_form ${showFormBody ? "show" : ""}`} onSubmit={createTasks}>
-      <div className="form_title" onClick={handleFormTitleClick}>Create New Task</div>
+    <form name="task" className="createTask_form" onSubmit={createTasks}>
 
-      <div className="form_body">
-        <div className={emptyInput ? "emptyInput show" : "emptyInput"}>
-          <input
-          className='taskName_input'
-          type="text"
-          placeholder="Title"
-          name="name"
-          onChange={handleChange}
-        />
+      <div className={`${showListContent ? "show_form" : ""}`}>
+        <div className="form_title" onClick={handleListTitleClick}>
+          Create New List
         </div>
-        <textarea
-          className="taskDescription_input"
-          name="description"
-          placeholder="Description"
-          onChange={handleChange}
-        />
-        <select
-          className="list_selection"
-          name="list_id"
-          onChange={handleChange}
-        >
-          {storeLists?.map((el) => (
-            <option key={el.id} value={el.id}>
-              List: {el.title}
-            </option>
-          ))}
-        </select>
-        <div className="form_footer">
-          <input
-            className="date_selection"
-            name="due_date"
-            type="date"
+        <div className="form_body list_body">
+          <div className={emptyInput ? "emptyInput show" : "emptyInput"}>
+            <input
+              className="name_input"
+              type="text"
+              placeholder="Title List"
+              name="name"
+              onChange={handleChange}
+            />
+            <button
+              className="createTask_button"
+              onMouseDown={(e) => e.preventDefault()}
+            >
+              Create List
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div className={`${showTaskContent ? "show_form" : ""}`}>
+        <div className="form_title" onClick={handleTaskTitleClick}>
+          Create New Task
+        </div>
+        <div className="form_body task_body">
+          <div className={emptyInput ? "emptyInput show" : "emptyInput"}>
+            <input
+              className="name_input"
+              type="text"
+              placeholder="Title Task"
+              name="name"
+              onChange={handleChange}
+            />
+          </div>
+          <textarea
+            className="taskDescription_input"
+            name="description"
+            placeholder="Description"
             onChange={handleChange}
           />
-          <button
-            className="createTask_button"
-            onMouseDown={(e) => e.preventDefault()}
+          <select
+            className="list_selection"
+            name="list_id"
+            onChange={handleChange}
           >
-            Create Task
-          </button>
+            {storeLists?.map((el) => (
+              <option key={el.id} value={el.id}>
+                List: {el.title}
+              </option>
+            ))}
+          </select>
+          <div className="form_footer">
+            <input
+              className="date_selection"
+              name="due_date"
+              type="date"
+              onChange={handleChange}
+            />
+            <button
+              className="createTask_button"
+              onMouseDown={(e) => e.preventDefault()}
+            >
+              Create Task
+            </button>
+          </div>
         </div>
       </div>
     </form>

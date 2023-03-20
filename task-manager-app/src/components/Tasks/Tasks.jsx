@@ -22,6 +22,7 @@ function Tasks() {
       {
         storeTasks?.length > 0 ?
           <ul className="tasks-list">
+            <span className="indent"></span>
             {
               storeTasks.filter(t => t.list_id === listId).map((todo) => (
                 <TaskItem key={todo.id} todo={todo} />

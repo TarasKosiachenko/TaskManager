@@ -1,10 +1,16 @@
 .tasks-list {
   max-height: 100vh;
   overflow: auto;
-  padding-right: 10px;
+  padding: 0 10px 10px;
   margin: 0;
+  .indent {
+    &::before {
+      content: "";
+      display: block;
+      height: 66px;
+    }
+  }
 }
-
 
 ::-webkit-scrollbar {
   width: 5px;

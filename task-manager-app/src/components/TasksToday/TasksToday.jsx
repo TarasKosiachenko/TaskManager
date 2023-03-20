@@ -15,11 +15,12 @@ function TasksToday() {
 
   return (
     <>
-      <div className="tasks-list">
+      <ul className="tasks-list">
+      <span className="indent"></span>
         {storeTodayTasks.map((todo) => (
           <TaskItem key={todo.id} todo={todo} />
         ))}
-      </div>
+      </ul>
     </>
   );
 }

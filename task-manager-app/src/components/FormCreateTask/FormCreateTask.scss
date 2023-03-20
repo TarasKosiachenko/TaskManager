@@ -12,7 +12,7 @@ $transition-border-color: all 0.4s ease-in-out;
     box-sizing: border-box;
   }
 
-  &.show {
+  .show_form {
     .form_title {
       &::after {
         content: "";
@@ -21,7 +21,12 @@ $transition-border-color: all 0.4s ease-in-out;
     }
     .form_body {
       visibility: visible;
-      height: 230px;
+      &.list_body {
+        height: 110px;
+      }
+      &.task_body {
+        height: 230px;
+      }
     }
   }
 
@@ -82,7 +87,7 @@ $transition-border-color: all 0.4s ease-in-out;
     }
   }
 
-  .taskName_input {
+  .name_input {
     position: relative;
     margin-top: 1rem;
     padding: 0.5rem;
@@ -126,7 +131,6 @@ $transition-border-color: all 0.4s ease-in-out;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin: 1rem 0 0.5rem;
     .date_selection {
       padding: 0.5rem;
       border: none;
@@ -138,21 +142,22 @@ $transition-border-color: all 0.4s ease-in-out;
         border-bottom: 2px solid $primary-color;
       }
     }
-
-    .createTask_button {
-      padding: 0.5rem;
-      background-color: $primary-color;
-      color: #fff;
-      border: none;
-      max-width: 100px;
-      border-radius: 0.5rem;
-      cursor: pointer;
-      &:hover {
-        background-color: darken($primary-color, 10%);
-      }
-      &:active {
-        transform: translateY(1px);
-      }
+  }
+  .createTask_button {
+    padding: 0.5rem;
+    background-color: $primary-color;
+    color: #fff;
+    border: none;
+    float: right;
+    max-width: 100px;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+    &:active {
+      transform: translateY(1px);
     }
   }
 }

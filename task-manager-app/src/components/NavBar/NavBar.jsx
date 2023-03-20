@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./NavBar.scss";
 import { Link } from "react-router-dom";
 import Lists from "../Lists/Lists";
-import LogoIcon from "../../MyIcons/MyIcons"
+import { LogoIcon } from "../../MyIcons/MyIcons"
 import FormCreateTask from "../FormCreateTask/FormCreateTask";
 import { axiosGetLists } from "../../asyncActions/lists";
 import { useDispatch, useSelector } from "react-redux";
