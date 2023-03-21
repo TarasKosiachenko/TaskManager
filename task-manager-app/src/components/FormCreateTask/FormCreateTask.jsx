@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import "./FormCreateTask.scss";
+import "./FormCreate.scss";
 import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -19,12 +19,7 @@ const FormCreateTask = () => {
   const { pathname } = useLocation();
   const [form, setForm] = useState(INITIAL_STATE);
   const [emptyInput, setEmptyInput] = useState(false);
-  const [showListContent, setShowListContent] = useState(false);
   const [showTaskContent, setShowTaskContent] = useState(true);
-
-  const handleListTitleClick = () => {
-    setShowListContent(!showListContent);
-  };
 
   const handleTaskTitleClick = () => {
     setShowTaskContent(!showTaskContent);
@@ -64,31 +59,7 @@ const FormCreateTask = () => {
   }
 
   return (
-    <form name="task" className="createTask_form" onSubmit={createTasks}>
-
-      <div className={`${showListContent ? "show_form" : ""}`}>
-        <div className="form_title" onClick={handleListTitleClick}>
-          Create New List
-        </div>
-        {/* <div className="form_body list_body">
-          <div className={emptyInput ? "emptyInput show" : "emptyInput"}>
-            <input
-              className="name_input"
-              type="text"
-              placeholder="Title List"
-              name="name"
-              onChange={handleChange}
-            />
-            <button
-              className="createTask_button"
-              onMouseDown={(e) => e.preventDefault()}
-            >
-              Create List
-            </button>
-          </div>
-        </div> */}
-      </div>
-
+    <form name="task" className="create_form" onSubmit={createTasks}>
       <div className={`${showTaskContent ? "show_form" : ""}`}>
         <div className="form_title" onClick={handleTaskTitleClick}>
           Create New Task

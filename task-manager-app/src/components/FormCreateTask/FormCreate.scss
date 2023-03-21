@@ -3,7 +3,7 @@ $secondary-color: #dcdcdc;
 $danger-color: #eb3636;
 $transition-border-color: all 0.4s ease-in-out;
 
-.createTask_form {
+.create_form {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -79,7 +79,7 @@ $transition-border-color: all 0.4s ease-in-out;
         opacity: 1;
         visibility: visible;
       }
-      .taskName_input {
+      .name_input {
         border: 1px solid $danger-color;
         border-bottom: 2px solid $danger-color !important;
         transition: $transition-border-color;

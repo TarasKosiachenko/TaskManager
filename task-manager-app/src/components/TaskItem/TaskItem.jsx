@@ -74,8 +74,8 @@ function TaskItem({ todo }) {
         <div>
           <p>{todo.description}</p>
         </div>
-        <div className="btn btn-outline-danger delete_task">
-          <TrashIcon onClick={deleteTask} />
+        <div className="delete_task" onClick={deleteTask}>
+          <TrashIcon />
         </div>
         {todo.list ? (
           <div className="todayTaskList">

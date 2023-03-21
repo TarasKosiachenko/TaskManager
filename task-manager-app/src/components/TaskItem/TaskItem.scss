@@ -68,7 +68,8 @@ li.overdue span {
 li.overdue .calendar svg path {
   stroke: #ff0000;
 }
-.btn-outline-danger {
+
+.delete_task {
   position: absolute;
   cursor: pointer;
   right: 10px;
@@ -79,18 +80,12 @@ li.overdue .calendar svg path {
   line-height: 0 !important;
   border-radius: 30px !important;
 }
-.delete_task {
-  svg:hover {
-    path,
-    polyline,
-    line {
-      stroke: #ff0000;
-    }
-  }
-}
 .todayTaskList {
   padding-top: 0;
   * {
     padding-top: 0;
+  }
+  .delete_list {
+    display: none;
   }
 }

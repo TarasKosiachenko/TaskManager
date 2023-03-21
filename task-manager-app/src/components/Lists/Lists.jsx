@@ -1,5 +1,6 @@
 import React from "react";
 import "./Lists.scss";
+import { TrashIcon } from "../../MyIcons/MyIcons";
 import { NavLink } from "react-router-dom";
 
 function Lists({ storeLists }) {
@@ -9,9 +10,11 @@ function Lists({ storeLists }) {
         <NavLink
           to={"/lists/" + (list.id || list.list_id)}
           key={list.id || list.list_id}
-          className={`list ${( isActive ) => isActive && "active"}`}
+          className={`list ${(isActive) => isActive && "active"}`}
         >
-          {list.title} <span>{list.undone}</span>
+          <TrashIcon />
+          <p>{list.title}</p>
+          <span>{list.undone}</span>
         </NavLink>
       ))}
     </div>

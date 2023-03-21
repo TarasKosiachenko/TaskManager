@@ -7,11 +7,19 @@ a {
 .list {
   display: flex;
   height: auto;
+  position: relative;
   padding: 5px 10px;
   justify-content: space-between;
   align-items: center;
+  border-radius: 5px;
+  p {
+    margin: 0;
+    word-wrap: break-word;
+    width: min-content;
+    min-width: 200px;
+    text-align: center;
+  }
   &:hover {
-    border-radius: 10px;
     background: rgb(235, 235, 235);
   }
   &.active {
@@ -19,7 +27,6 @@ a {
   justify-content: space-between;
   background: #6c757d;
   color: #fff;
-  border-radius: 10px;
 }
 }
 
