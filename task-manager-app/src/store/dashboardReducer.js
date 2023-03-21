@@ -5,7 +5,8 @@ const defaultState = {
 };
 
 const GET_LISTS = "GET_LISTS";
-
+const ADD_LIST = "ADD_LIST";
+const DELETE_LIST = "DELETE_LIST";
 const INCREMENT_COUNTER = "INCREMENT_COUNTER";
 const DECREMENT_COUNTER = "DECREMENT_COUNTER";
 
@@ -36,6 +37,18 @@ export const dashboard = (state = defaultState, action) => {
             : el;
         }),
       };
+
+    case ADD_LIST:
+        return {
+          ...state,
+          lists: [...state.lists, ...action.payload],
+        };
+    case DELETE_LIST:
+      return {
+        ...state,
+        lists: state.lists.filter((list) => list.id !== action.payload),
+      };
+
     default:
       return state;
   }
@@ -53,5 +66,17 @@ export const incrementCounterAction = (payload) => ({
 
 export const decrementCounterAction = (payload) => ({
   type: DECREMENT_COUNTER,
+  payload,
+});
+
+export const addListCustomerAction = (payload) => {
+  return {
+    type: ADD_LIST,
+    payload,
+  }
+};
+
+export const deleteListCustomerAction = (payload) => ({
+  type: DELETE_LIST,
   payload,
 });
