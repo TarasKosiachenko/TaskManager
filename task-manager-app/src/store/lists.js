@@ -1,4 +1,5 @@
 const ADD_LIST = "ADD_LIST";
+const DELETE_LIST = "DELETE_LIST";
 
 export const lists = (state = [], action) => {
   switch (action.type) {
@@ -11,6 +12,8 @@ export const lists = (state = [], action) => {
       } else {
         return state;
       }
+      case DELETE_LIST:
+        return state.filter((list) => list.id !== action.payload);
     default:
       return state;
   }
@@ -18,5 +21,10 @@ export const lists = (state = [], action) => {
 
 export const addListCustomerAction = (payload) => ({
   type: ADD_LIST,
+  payload,
+});
+
+export const deleteListCustomerAction = (payload) => ({
+  type: DELETE_LIST,
   payload,
 });

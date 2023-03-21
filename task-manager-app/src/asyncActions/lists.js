@@ -1,6 +1,6 @@
 import axios from "axios";
 import { getListsCustomerAction } from "../store/dashboardReducer"
-import { addListCustomerAction } from "../store/lists"
+import { addListCustomerAction, deleteListCustomerAction } from "../store/lists"
 
 export const axiosGetLists = () => {
     return function (dispatch) {
@@ -20,3 +20,13 @@ export const axiosAddList = ({ ...form }) => {
         );
     };
 }
+
+export const axiosDeleteList = (id) => {
+  return function (dispatch) {
+    axios
+      .delete("http://localhost:5000/lists/" + id)
+      .then((response) =>
+        dispatch(deleteListCustomerAction(response.data[0].id))
+      );
+  };
+};

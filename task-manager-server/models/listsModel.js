@@ -42,8 +42,8 @@ class ListsModel {
 
   deleteList(list_id) {
     return database
-      .query("DELETE FROM lists WHERE id = $1", [list_id])
-      .then((data) => data.rows);
+    .query("WITH deleted_tasks AS (DELETE FROM tasks WHERE list_id = $1 RETURNING *)DELETE FROM lists WHERE id = $1;", [list_id])
+    .then((data) => data.rows);
   }
 }
 

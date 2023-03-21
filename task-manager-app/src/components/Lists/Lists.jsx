@@ -3,7 +3,18 @@ import "./Lists.scss";
 import { TrashIcon } from "../../MyIcons/MyIcons";
 import { NavLink } from "react-router-dom";
 
+import { axiosDeleteList } from "../../asyncActions/lists";
+
+import { useDispatch } from "react-redux";
+
 function Lists({ storeLists }) {
+
+  const dispatch = useDispatch();
+
+  function deleteList(id) {
+    dispatch(axiosDeleteList(id))
+  }
+
   return (
     <div>
       {storeLists?.map((list) => (
@@ -12,7 +23,9 @@ function Lists({ storeLists }) {
           key={list.id || list.list_id}
           className={`list ${(isActive) => isActive && "active"}`}
         >
-          <TrashIcon />
+          <div className="delete_list" onClick={() => deleteList(list.id)}>
+            <TrashIcon />
+          </div>
           <p>{list.title}</p>
           <span>{list.undone}</span>
         </NavLink>
