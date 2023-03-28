@@ -30,7 +30,7 @@ function Tasks() {
             }
           </ul>
           :
-          <div>
+          <div className="empty_content">
             Tasks list empty!
           </div>
       }

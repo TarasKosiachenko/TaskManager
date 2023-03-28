@@ -23,11 +23,14 @@ a {
     background: rgb(235, 235, 235);
   }
   &.active {
-  display: flex;
-  justify-content: space-between;
-  background: #6c757d;
-  color: #fff;
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient(120deg, darkmagenta, crimson, orange);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    transition: background-position 0.5s;
+    border: 0;
+    color: white;
+    cursor: pointer;
+  }
 }
-}
-
-

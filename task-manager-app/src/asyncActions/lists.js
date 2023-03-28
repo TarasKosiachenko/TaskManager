@@ -17,9 +17,8 @@ export const axiosAddList = ({ ...form }) => {
   return function (dispatch) {
     axios
       .post("http://localhost:5000/lists", form)
-      .then((response) =>{
-      console.log(response.data);
-          dispatch(addListCustomerAction(response.data))}
+      .then((response) =>
+          dispatch(addListCustomerAction(response.data))
       );
   };
 };

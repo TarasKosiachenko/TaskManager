@@ -1,5 +1,5 @@
 import React from "react";
-import "./MyIcons.scss"
+import "./MyIcons.scss";
 
 export function LogoIcon(props) {
   return (
@@ -60,6 +60,22 @@ export function TrashIcon() {
       <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
       <line x1="10" y1="11" x2="10" y2="17"></line>
       <line x1="14" y1="11" x2="14" y2="17"></line>
+    </svg>
+  );
+}
+
+export function MobileArrow() {
+  return (
+    <svg
+      width="30px"
+      height="20px"
+      viewBox="0 0 64 64"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      stroke="#000000"
+    >
+      <polyline points="24 40 32 32 24 24" />
+      <polyline points="32 40 40 32 32 24" />
     </svg>
   );
 }
